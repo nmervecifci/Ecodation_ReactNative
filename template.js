@@ -277,7 +277,7 @@ const ifElseExamples = () => {
         console.log("negatif");
     }
 }
-ifElseExamples();
+//ifElseExamples();
 
 // ternary
 const ifElseTernaryExamples = () => {
@@ -286,7 +286,7 @@ const ifElseTernaryExamples = () => {
     console.log(result);
 
 }
-ifElseTernaryExamples()
+//ifElseTernaryExamples()
 
 // if else if else
 const ifElseMultipleExamples = () => {
@@ -305,7 +305,7 @@ const ifElseMultipleExamples = () => {
         console.log("1<=X<=5 dışındadır");
     }
 }
-ifElseMultipleExamples();
+//ifElseMultipleExamples();
 
 // switch case
 const switchMultipleExamples = () => {
@@ -332,7 +332,7 @@ const switchMultipleExamples = () => {
             break;
     }
 }
-switchMultipleExamples();
+//switchMultipleExamples();
 
 // break   : döngüyü kırar çalıştırmaz
 // return  : function kırar çalıştırmaz
@@ -352,60 +352,305 @@ switchMultipleExamples();
 ////////////////////////////////////////////
 // LOOP
 // for
-(() => {
-    for (let i = 1; i <= 10; i++) {
-        document.write(i + " ")
-    }
-    document.write("<br/>")
-})();
+// (() => {
+//     for (let i = 1; i <= 10; i++) {
+//         document.write(i + " ")
+//     }
+//     document.write("<br/>")
+// })();
 // sonsuz for 
 // for(;;){}
 
 // while
-(() => {
-    let i = 1;
-    while (i <= 10) {
-        document.write(i + " ")
-        //i++;
-        //i=i+1;
-        i += 1;
-    }
-    document.write("<br/>")
-})();
+// (() => {
+//     let i = 1;
+//     while (i <= 10) {
+//         document.write(i + " ")
+//         //i++;
+//         //i=i+1;
+//         i += 1;
+//     }
+//     document.write("<br/>")
+// })();
 // sonsuz while 
 // while(true){}
 
 // do while
-(() => {
-    let i = 1;
-    do {
-        document.write(i + " ")
-        i = i + 1;
-    } while (i <= 10);
-})();
+// (() => {
+//     let i = 1;
+//     do {
+//         document.write(i + " ")
+//         i = i + 1;
+//     } while (i <= 10);
+// })();
+////////////////////////////////////////////
+
+// arrow function
+// clean code 
+// conditional(if else)
+// loop (for-while)
+
+// return  : metotun çalışmasını durdurur
+// break   : döngünün çalışmasını durdurur
+// continue: sadece 1 kereye mahsus durur sonra devam eder.
 
 // SORU 1<=userData<=50
 // 1 ile Kullanıcı tarafından alınan bitiş sayısına kadar toplama yapan Algoritma örneği
 // Örnek: 1<=user 1+2+3+...userdatası
-// Eğer Bu sayılardan 7 sayıyı varsa bunu toplayama dahil etmesin (continue)
+// secret-Key kullanıcı eğer 44 girerse hiç bir işlem yapmadan sistemden çıkış sağlansın onunda haricinde sürekli işlem yapsın
 // Bu sayının en fazla 50'e kadar toplama yapabilir (break)
+// Eğer Bu sayılardan 7 sayıyı varsa bunu toplayama dahil etmesin (continue)
+
 // bu sayılardan çift olanların kaç tane, sayıların kendisi ve toplamları nedir ?
 // bu sayılardan tek olanların kaç tane, sayıların kendisi ve toplamları nedir ?
-// secret-Key kullanıcı eğer 44 girerse hiç bir işlem yapmadan sistemden çıkış sağlansın onunda haricinde sürekli işlem yapsın
+
 // Dikkat: Bu algoritmayı Arrow Function ile yapalım.
-// (Clean code kuralları çercevesinde ) algoritma yapan program?
+// (Clean code kuralları çercevesinde ) algoritma yapan program ?
+
+let userData = () => {
+    const userInput = Number(prompt("Lütfen bitiş sayısını giriniz"));
+    let commonSum = 0;
+    // Tek ve Çift için
+    let oddSum = 0, oddCounter = 0, oddAllNumber = "";
+    let evenSum = 0, evenCounter = 0, evenAllNumber = "";
+
+    // Loop
+    for (let i = 1; i <= userInput; i++) {
+        //  secret-Key 
+        if (commonSum == 44) {
+            console.log("secret-Key girildi çıkış yapılıyor.");
+            break;
+        }
+
+        // en fazla 50'e kadar toplama yapsın.
+        if (i == 50) {
+            console.log("sadece 1<=X<=50 arasındakileri toplayabilirim.");
+            break;
+        }
+
+        // sayılardan 7 sayıyı varsa dahil etmesin
+        if (i == 7) {
+            console.log("7 sayısı dahil edilmedi !!!");
+            continue;
+        }
+
+        // ÇİFT
+        if (i % 2 == 0) {
+            evenCounter++;
+            evenSum += i;
+            evenAllNumber = evenAllNumber + " " + i;
+        } else { //TEK
+            oddCounter++;
+            oddSum += i;
+            oddAllNumber = oddAllNumber + " " + i;
+        }
+        commonSum = commonSum + i;
+    }
+
+    console.log("Bütün sayı toplamları: " + commonSum);
+
+    console.log("Tek sayılar: " + oddAllNumber);
+    console.log("Tek sayı adeti: " + oddCounter);
+    console.log("Tek sayılar toplamı: " + oddSum);
+
+    console.log("Çift sayılar: " + evenAllNumber);
+    console.log("Çift sayı adeti: " + evenCounter);
+    console.log("Çift sayılar toplamı: " + evenSum);
+}
+
+//userData();
 
 ////////////////////////////////////////////
 // TRY CATCH
+(() => {
+    try {
+        alertx("Deneme");
+    } catch (err) {
+        //console.error(err);
+        //console.error(err.name+":"+err.message);
+    } finally {
+        //console.log("Db.close() Api.close() port.close()");
+    }
+    // console.log("son satır");
+})();
+
+////////////////////////////////////////////
 // DIZI
+let myArray = () => {
+    //let array = [5, 9, 1, 2, "malatya", true, 44.23];
+    let array = [5, 9, 1, 2, 5, 3, 90];
+    // console.log(array);
+    // console.log(array[0]);
+    // console.log(array[7-1]);
+    // console.log(array[array.length-1]);
+
+    // iterative for
+    for (let i = 0; i < array.length; i++) {
+        document.writeln(array[i] + " ")
+    }
+
+    document.writeln("<br/>")
+    // for in: index
+    // for (let temp in array) {
+    //     document.writeln(temp + " =>"+array[temp]+"<br/>")
+    // }
+    // document.writeln("<br/>")
+    // for in: index
+    // for (let temp of array) {
+    //     document.writeln(temp + " ")
+    // }
+    // document.writeln("<br/>")
+    // array.push(88);
+    // array.unshift(11);
+
+    // array.pop();
+    // //array.pop();
+    // array.shift();
+
+    // array.sort();
+    // array.sort().reverse();
+
+    // let result=array.toString().split(",");
+    // console.log(result);
+
+    // delete array[0];
+    // delete array[array.length-1];
+
+    // splice
+    // 3: indis numarası
+    // 2: silinecek sayısı
+    array.splice(3, 9);
+
+    for (let temp of array) {
+        document.writeln(temp + " ")
+    }
+}
+// myArray();
+
+// Konum Örneği Function
+let geolocationFunction = () => {
+    console.log("Geo Location");
+    if (window.navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((positionData) => {
+            const { latitude, longitude } = positionData.coords;
+            console.log(latitude, longitude);
+            console.log("Enlem:" + latitude, longitude);
+            console.log("Boylam:" + longitude);
+        }, (err) => {
+            console.error("Hata var Konum açılmamıştır.");
+            console.error(err);
+        })
+    }
+}
+//geolocationFunction();
+
+////////////////////////////////////////////
 // OBJECT
+const objectData = () => {
+    let person = {
+        "name": "Hamit",
+        "surname": "Mızrak",
+        isLogin: true,
+        fullName: function () {
+            return this.name + " " + this.surname;
+        }
+    };
+    console.log(person);
+    console.log(person.name);
+    console.log(person["name"]);
+    console.log(person.fullName());
+
+    person.tcNumber = "11222333";
+    console.log(person.tcNumber);
+}
+// objectData();
+
+let objectConstructor = () => {
+    let Person = function (adi, soyadi) {
+        this.adi = adi;
+        this.soyadi = soyadi;
+        console.log(this);
+    }
+    let data = new Person("Hamit", "Mızrak");
+}
+//objectConstructor();
+
+// JSON
+
+let objeJson = () => {
+    let object = {
+        "name": "Adım",
+        "surname": "Soyadım"
+    };
+
+    let value = JSON.stringify(object);
+    console.log(value);
+
+    let pars = JSON.parse(value);
+    console.log(pars);
+}
+//objeJson();
+
+// Event
+let eventData = () => {
+    alert("Event");
+}
+
+// Dom
+let eventDom=()=>{
+    //alert("Dom");
+   let data= document.getElementById("parag_id");
+   data.innerHTML="<b>Veriler değişti</b>";
+   //data.innerText="<b>Veriler değişti</b>";
+   data.style.color="red";
+   data.style.backgroundColor="black";
+   data.style.padding="1rem";
+}
+
+// Submit Data
+const submitData=(e)=>{
+    console.log("datra");
+
+    // browser sen dur bir şey yapma
+    //e.preventDefault();
+
+    //alert("çalıştı")
+    let email=document.getElementById("email_id").value;
+    let password=document.getElementById("password_id").value;
+    //console.log("Email: "+email+" Şifre: "+password);
+
+    let emailLocal= localStorage.setItem("email_unique",email);
+    let passwordLocal=localStorage.setItem("password_unique",password);
+    console.log(localStorage.getItem("email_unique"));
+    console.log(localStorage.getItem("password_unique"));
+    alert("Tamamdır")
+}
+
+
+
+
+////////////////////////////////////////////
+// DOM
+// Listener
+// LocalStorage
+
+////////////////////////////////////////////
+// normal, anonymous, arrow , immedia function
 // Callback, Promise, Async-await
 // ES5
 // ES6
+
+////////////////////////////////////////////
+
+// Kurulum Videosu
+// VS code
+// Node js
+// Android Studio
+// React Native
+
 ////////////////////////////////////////////
 
 
 
 
 
- 
