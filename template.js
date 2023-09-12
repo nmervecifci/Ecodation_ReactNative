@@ -479,8 +479,8 @@ let userData = () => {
 let myArray = () => {
     //let array = [5, 9, 1, 2, "malatya", true, 44.23];
     let array = [5, 9, 1, 2, 5, 3, 90];
-    // console.log(array);
-    // console.log(array[0]);
+     console.log(array);
+     console.log(array[0]);
     // console.log(array[7-1]);
     // console.log(array[array.length-1]);
 
